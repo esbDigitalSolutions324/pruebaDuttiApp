@@ -22,7 +22,8 @@ import { PrincipalComponent } from './modules/principal/principal.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PrincipalModule
+    PrincipalModule,
+    //BrowserAnimationsModule
 
   ],
   providers: [],
