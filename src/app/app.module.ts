@@ -8,6 +8,7 @@ import { PrincipalModule } from './modules/principal/principal.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { PrincipalComponent } from './modules/principal/principal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { PrincipalComponent } from './modules/principal/principal.component';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule,
-    //BrowserAnimationsModule
+    BrowserAnimationsModule,
 
   ],
   providers: [],
