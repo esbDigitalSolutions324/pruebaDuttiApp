@@ -2,33 +2,25 @@
     <h2 class="text-center">Iniciar sesión</h2>
     <p class="text-center">Introduzca su correo y contraseña para acceder</p>
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
-        <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Username"
-                formControlName="username"/>
-                <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('username').invalid">
-                <span class="colorInvalid">
-                    <i>Username is required</i>
-                </span>
-            </div>
-        </div>
-        <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
-            <!-- <label for="password">Password</label> -->
-            <input
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            formControlName="password"/>
-            <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('password').invalid">
-                <span class="colorInvalid">
-                    <i>Password is required</i>
-                </span>
-            </div>
-        </div>
+      
+       <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your UserName</mat-label>
+            <input matInput placeholder="Username" type="text" formControlName="username">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="loginForm.get('username').hasError('required')">Username is required</mat-error>
+            <mat-error *ngIf="loginForm.get('username').hasError('minlength')">minLength for UserName is 3</mat-error>
+        </mat-form-field>   
+
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your Password</mat-label>
+            <input matInput placeholder="password" type="password" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="loginForm.get('password').hasError('minlength')">minLength for password is 6</mat-error>
+        </mat-form-field>   
+
+
+      
         <div class="buttons">
             <!-- <button type="submit" [disabled]="loginForm.invalid" class="btn buttons__login">Iniciar sesión</button> -->
             <button type="submit" [disabled]="loginForm.invalid" class="btn buttons__login">Iniciar sesión</button>

@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }
