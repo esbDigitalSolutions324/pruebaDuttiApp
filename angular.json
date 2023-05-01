@@ -127,8 +127,13 @@
               "devServerTarget": "massimo-dutti:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "massimo-dutti"
 }

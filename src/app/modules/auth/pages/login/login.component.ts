@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 
 // JSON
 import usersList from 'src/assets/json/users.json';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers:[AuthService]
 })
 export class LoginComponent implements OnInit {
 
@@ -20,14 +22,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _auth:AuthService
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      username: [ '', [Validators.required, Validators.minLength(3)]],
-      password: [ '', [Validators.required, Validators.minLength(6)]]
-    })
+    this.login()
   }
   loginUser() {
     if (this.loginForm.invalid) { return }
@@ -41,5 +41,15 @@ export class LoginComponent implements OnInit {
       this.unregistered = true;
     }
   }
+
+
+  login(){
+    this._auth.login("aaron23@gmail.com","pass").then(response => {
+      console.log(response);
+    })
+    .catch(error => console.log(error));
+}
+
+
 }
 

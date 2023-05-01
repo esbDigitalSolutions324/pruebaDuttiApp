@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { PrincipalComponent } from './modules/principal/principal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+
 
 
 @NgModule({
@@ -25,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     PrincipalModule,
     BrowserAnimationsModule,
-
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

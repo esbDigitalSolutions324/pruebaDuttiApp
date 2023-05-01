@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "authProject": "dutty-auth"
+  },
+  "targets": {
+    "dutty-auth": {
+      "hosting": {
+        "massimo-dutti": [
+          "dutty-auth"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
