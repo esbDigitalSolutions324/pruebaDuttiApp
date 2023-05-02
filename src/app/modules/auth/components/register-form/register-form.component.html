@@ -1,0 +1,63 @@
+<div class="col-md-4 col-md-offset-4 container mt-5">
+    <h2 class="text-center">Registrar</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+        
+
+
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your FirstName</mat-label>
+            <input matInput placeholder="FirstName" type="text" formControlName="first_name">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="registerForm.get('first_name').hasError('required')">FirstName is required</mat-error>
+            <mat-error *ngIf="registerForm.get('first_name').hasError('minlength')">minLength for FirstName is 3</mat-error> 
+        </mat-form-field>   
+
+       
+
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your Las Name</mat-label>
+            <input matInput placeholder="Last Name" type="text" formControlName="last_name">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="registerForm.get('last_name').hasError('required')">LastName is required</mat-error>
+            <mat-error *ngIf="registerForm.get('last_name').hasError('minlength')">minLength for LastName is 3</mat-error> 
+        </mat-form-field>  
+
+
+     
+
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your User Name</mat-label>
+            <input matInput placeholder="Last Name" type="text" formControlName="username">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="registerForm.get('username').hasError('required')">Username is required</mat-error>
+            <mat-error *ngIf="registerForm.get('username').hasError('minlength')">minLength for username is 3</mat-error> 
+        </mat-form-field>  
+
+
+        
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your Email</mat-label>
+            <input matInput placeholder="Email" type="text" formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="registerForm.get('email').hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="registerForm.get('email').hasError('minlength')">minLength for email is 6</mat-error> 
+        </mat-form-field> 
+
+        <mat-form-field appearance="outline" class="col-md-12">
+            <mat-label>Type your password</mat-label>
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error *ngIf="registerForm.get('password').hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="registerForm.get('password').hasError('minlength')">minLength for password is 7</mat-error> 
+        </mat-form-field> 
+
+        <div class="buttons">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn buttons__login">Register</button>
+            <img *ngIf="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <!-- <a routerLink="/" class="btn btn-link">Cancel</a> -->
+            <button type="button" class="btn buttons__register" routerLink="/">Cancelar</button>
+        </div>
+    </form>
+</div>
+

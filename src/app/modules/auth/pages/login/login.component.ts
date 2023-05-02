@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.login()
+    
   }
   loginUser() {
     if (this.loginForm.invalid) { return }
@@ -43,12 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(){
-    this._auth.login("aaron23@gmail.com","pass").then(response => {
-      console.log(response);
-    })
-    .catch(error => console.log(error));
-}
+ 
 
 
 }

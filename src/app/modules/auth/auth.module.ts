@@ -7,12 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MaterialModule } from '../material/material.module';
+import { RegisterComponent } from '../register/register.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterComponent,
+    RegisterFormComponent
   ],
   imports: [
     CommonModule,
