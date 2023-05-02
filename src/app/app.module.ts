@@ -6,15 +6,18 @@ import { PrincipalModule } from './modules/principal/principal.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './modules/register/register.component';
+
 import { PrincipalComponent } from './modules/principal/principal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    RegisterComponent,
+ 
     PrincipalComponent
   ],
   imports: [
@@ -22,8 +25,9 @@ import { PrincipalComponent } from './modules/principal/principal.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PrincipalModule
-
+    PrincipalModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
