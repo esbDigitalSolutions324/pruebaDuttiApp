@@ -11,8 +11,8 @@ import { ShipsService } from 'src/app/services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
-  books$ = this.store.pipe(select(selectShips));
+  public dataList: any ;
+  ships$ = this.store.pipe(select(selectShips));
 
   constructor( 
     private store: Store,
@@ -22,9 +22,12 @@ export class ShipsComponent implements OnInit {
   ngOnInit(): void {
 
     this.store.dispatch(invokeShipsAPI());
-    this.shipsService.getShips().subscribe((ships) => {
+     this.ships$.subscribe(ships=>{
+      this.dataList=ships;
+    })
+   /*  this.shipsService.getShips().subscribe((ships) => {
       this.dataList = ships;
       console.log('SHIPS -->', this.dataList.results)
-    })
+    }) */
   }
 }

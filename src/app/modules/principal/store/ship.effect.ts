@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { EMPTY } from 'rxjs';
-import {map,mergeMap,withLatestFrom} from 'rxjs/operators'
+import {map,mergeMap,switchMap,withLatestFrom} from 'rxjs/operators'
 import { ShipsService } from '../../../services/ships.service';
-import { shipsFetchAPISuccess,invokeShipsAPI } from './ship.action';
+import { shipsFetchAPISuccess,invokeShipsAPI, invokeShipsPerPageAPI } from './ship.action';
 import {selectShips } from './ship.selector';
 
 
@@ -31,6 +31,21 @@ export class ShipEffect {
           
           return this.shipsService
             .getShips()
+            .pipe(map((data) => shipsFetchAPISuccess({ allShips: data })));
+        })
+      )
+    );
+
+
+
+    loadAllShipsPerPage$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(invokeShipsPerPageAPI),
+        switchMap((action) => {
+          
+          
+          return this.shipsService
+            .getShipsPerPage(action.page)
             .pipe(map((data) => shipsFetchAPISuccess({ allShips: data })));
         })
       )
