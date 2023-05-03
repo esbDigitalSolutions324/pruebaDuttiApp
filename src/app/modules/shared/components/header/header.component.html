@@ -1,6 +1,6 @@
 <p>
     <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Prueba Dutti</span>
@@ -14,3 +14,15 @@
     </mat-toolbar>
 </p>
   
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="navigate('ships')">
+    <span>Ships</span>
+  </button>
+  <button mat-menu-item  (click)="navigate('PageOne')">
+    <span>Page One</span>
+  </button>
+  <button mat-menu-item  (click)="navigate('PagTwo')">
+    
+    <span>Page Two</span>
+  </button>
+</mat-menu>
