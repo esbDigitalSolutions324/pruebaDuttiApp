@@ -43,5 +43,8 @@ Navigate to `http://localhost:4200/`.
 
 
 # Notas del desarrollador:
+Se implementa un sistema de autenticacion con firebase. Falta agregar verificacion de email y metodos secundarios. 
+Para los estilos se ha utilizado angular material. 
+Se agrego Swal alert para dar mejor experiencia al usuario.
 
 
