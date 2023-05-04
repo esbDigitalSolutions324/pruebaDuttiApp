@@ -25,9 +25,10 @@ export class LoginFormComponent implements OnInit {
       username: [ '', [Validators.required, Validators.minLength(3)]],
       password: [ '', [Validators.required, Validators.minLength(6)]]
     })
+    this._auth.isLogin();
   }
 
-  loginUser() {
+  /* loginUser() {
     if (this.loginForm.invalid) { return }
     
     var userLogin = this.loginForm.value.username;
@@ -37,7 +38,7 @@ export class LoginFormComponent implements OnInit {
     } else {
       this.unregistered = true;
     }
-  }
+  } */
 
   login(){
     this._auth.login(this.loginForm.get('username').value,this.loginForm.get('password').value).then(response => {

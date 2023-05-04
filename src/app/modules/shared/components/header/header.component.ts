@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/auth/services/auth-service.service';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,13 @@ export class HeaderComponent implements OnInit {
       case 'PageOne':
         this.router.navigate(['/principal/pageOne'])
     }
+  }
+
+  logout(){
+    this._auth.logout();
+    setTimeout(()=>{
+      this.router.navigate(['/'])
+    },1500)
   }
 
 }
