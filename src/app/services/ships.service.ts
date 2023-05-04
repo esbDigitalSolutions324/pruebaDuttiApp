@@ -24,4 +24,10 @@ export class ShipsService {
       map( data => { return data })
       );
   }
+
+  getShipsPerPage(page:number): Observable<any>{
+    return this.http.get(this.url+'?page='+page).pipe( 
+      map( data => { return data })
+      );
+  }
 }

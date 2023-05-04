@@ -7,18 +7,23 @@ import { PrincipalModule } from './modules/principal/principal.module';
 // Components
 import { AppComponent } from './app.component';
 
-import { PrincipalComponent } from './modules/principal/principal.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { shipReducer } from './modules/principal/store/ship.reducer';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
- 
-    PrincipalComponent
+
   ],
   imports: [
     BrowserModule,
@@ -26,8 +31,13 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    StoreModule.forRoot({ appState: shipReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

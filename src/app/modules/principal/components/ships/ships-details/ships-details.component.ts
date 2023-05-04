@@ -11,7 +11,7 @@ export class ShipsDetailsComponent implements OnInit {
 
   @Input() dataList: any;
   config: any;
-  shipId: string = '';
+  shipId: number;
   url: string = '';
   // Modal
   titleDetails: string = '';
@@ -29,10 +29,17 @@ export class ShipsDetailsComponent implements OnInit {
       };
   }
 
+   separateNumber(url: string): number {
+    const splitUrl = url.split('/');
+    const number = parseInt(splitUrl[splitUrl.length - 2]);
+    return number;
+  }
+
   getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+    this.shipId = this.separateNumber(url)
+    
+    const urlImage ='https://starwars-visualguide.com/assets/img/starships/'+`${this.shipId}.jpg`
+    return urlImage ;
   }
 
   pageChanged(event){

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/auth/services/auth-service.service';
 
 
 @Component({
@@ -8,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private _auth: AuthService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(page:string){
+    switch (page){
+      case 'ships':
+        this.router.navigate(['/principal/ships'])
+        return 
+      case 'PageTwo':
+        this.router.navigate(['/principal/pageTwo'])
+        return
+      case 'PageOne':
+        this.router.navigate(['/principal/pageOne'])
+    }
+  }
+
+  logout(){
+    this._auth.logout();
+    setTimeout(()=>{
+      this.router.navigate(['/'])
+    },1500)
   }
 
 }

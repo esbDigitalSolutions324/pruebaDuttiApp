@@ -25,12 +25,12 @@ export class LoginFormComponent implements OnInit {
       username: [ '', [Validators.required, Validators.minLength(3)]],
       password: [ '', [Validators.required, Validators.minLength(6)]]
     })
+    this._auth.isLogin();
   }
 
-  loginUser() {
+  /* loginUser() {
     if (this.loginForm.invalid) { return }
-    // TODO : Falta integrar el servicio para autentificar al usuario
-    // JSON simulando usuarios
+    
     var userLogin = this.loginForm.value.username;
     var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
     if (filterJson.length > 0) {
@@ -38,11 +38,12 @@ export class LoginFormComponent implements OnInit {
     } else {
       this.unregistered = true;
     }
-  }
+  } */
 
   login(){
     this._auth.login(this.loginForm.get('username').value,this.loginForm.get('password').value).then(response => {
       console.log(response);
+      this.router.navigate(['/principal/ships'])
     })
     .catch(error => console.log(error));
 }

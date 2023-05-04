@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GuardLogGuard } from './modules/auth/guards/guard-log.guard';
+import { PrincipalGuard } from './modules/auth/guards/principal.guard';
 // Components
-import { RegisterComponent } from './modules/auth/pages/register/register.component';
+;
 
 const routes: Routes = [
   {
     path: '',
+    canActivate:[PrincipalGuard],
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  //{ path: 'register', component: RegisterComponent},
-  //{ path: 'principal', loadChildren: () => import(`./modules/principal/principal.module`).then(m => m.PrincipalModule) }
-  // { path: 'ships', loadChildren: () => import(`./components/ships/ships.module`).then(m => m.ShipsModule) }
+  
+  { path: 'principal', 
+  canActivate:[GuardLogGuard],
+  loadChildren: () => import(`./modules/principal/principal.module`).then(m => m.PrincipalModule)
+ }
+  
 ];
 
 @NgModule({

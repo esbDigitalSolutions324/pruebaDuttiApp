@@ -1,16 +1,38 @@
 <p>
     <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Prueba Dutti</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
+      <button 
+      mat-icon-button 
+      class="example-icon favorite-icon" 
+      aria-label="Example icon-button with heart icon"
+      #tooltip="matTooltip"
+      matTooltip="Logout"
+      (click)="logout()"
+      >
+        <mat-icon>logout</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
+      <button 
+      mat-icon-button 
+      class="example-icon" 
+      aria-label="Example icon-button with share icon"
+      >
+        <mat-icon >share</mat-icon>
       </button>
     </mat-toolbar>
 </p>
-  
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="navigate('ships')">
+    <span>Ships</span>
+  </button>
+  <button mat-menu-item  (click)="navigate('PageOne')">
+    <span>Page One</span>
+  </button>
+  <button mat-menu-item  (click)="navigate('PageTwo')">
+    
+    <span>Page Two</span>
+  </button>
+</mat-menu>
