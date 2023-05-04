@@ -23,7 +23,16 @@
 5.  Implementa test unitarios para el modulo de login/registro.
 6.  Añade imágenes a las CARDS de naves: Puedes usar esta api  'https://starwars-visualguide.com/assets/img/starships/' + ID_DE NAVE -->  https://starwars-visualguide.com/assets/img/starships/5.jpg
 7.  Suponiendo que esta página tiene un numero elevado de usuarios simultáneos, implementa las mejoras que consideres oportunas para evitar la saturación del servidor.
-    1.  Si alguna de las medidas no es de código, comentalas a continuación en este Readme.
+    1.  Si alguna de las medidas no es de código, comentalas a continuación en este Readme:
+
+    Algunas de las medidas que implementaria serian
+    -Escalar el servidor horizontalmente.
+    -Configurar el cache HTTP para que no se vuelvan a cargar los recursos. 
+    -Configurar la opcion del ivy, esto para renderizar de manera mas eficiente la pagina web. 
+    -Utilizaria una estrategia de precarga como QuickLinkStrategy. 
+    -Utilizaria service worker
+    -Analizaria los bundles de mi aplicacion de angular con WebPack Bundle analizer y buscaria alternativas para 
+    los modulos mas pesados. 
 
 
 # Getting Started 
