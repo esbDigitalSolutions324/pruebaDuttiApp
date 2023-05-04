@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/services/auth-service.service';
-
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this._auth.logout();
+    swal.fire('Now You are logout', '','warning');
     setTimeout(()=>{
       this.router.navigate(['/'])
     },1500)

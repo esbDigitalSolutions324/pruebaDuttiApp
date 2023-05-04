@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import usersList from 'src/assets/json/users.json';
 import { AuthService } from '../../services/auth-service.service';
+import swal from'sweetalert2';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -45,7 +47,12 @@ export class LoginFormComponent implements OnInit {
       console.log(response);
       this.router.navigate(['/principal/ships'])
     })
-    .catch(error => console.log(error));
+    .catch(error => 
+     {
+      console.log(error)
+      swal.fire('Verify user and password', '','error');
+     }
+      );
 }
 
 }
